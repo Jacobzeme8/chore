@@ -14,6 +14,17 @@ namespace chore.Repositories
             dbChores.Add(new Chore("Vaccume", 30, "Bedrooms"));
         }
 
+    internal Chore createChore(Chore choreData)
+    {
+        dbChores.Add(choreData);
+        return choreData;
+    }
+
+    internal void deleteChore(Chore chore)
+    {
+        dbChores.Remove(chore);
+    }
+
     internal List<Chore> getAllChores()
     {
         return dbChores;

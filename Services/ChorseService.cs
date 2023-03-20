@@ -19,6 +19,18 @@ public ChorseService(ChoresRepository repo)
         chore.ChoreDone();
     }
 
+    internal Chore createChore(Chore choreData)
+    {
+        Chore chore = _repo.createChore(choreData);
+        return chore;
+    }
+
+    internal void deleteChore(string choreName)
+    {
+        Chore chore =  _repo.getChoreByName(choreName);
+        _repo.deleteChore(chore);
+    }
+
     internal List<Chore> getAllChores()
     {
         return _repo.getAllChores();

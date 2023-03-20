@@ -54,7 +54,34 @@ namespace chore.Controllers
         }
         catch (Exception e)
         {
-          return BadRequest(e.Message);
+            return BadRequest(e.Message);
+        }
+    }
+
+    [HttpDelete ("{choreName}")]
+    public ActionResult<String> deletedChore(string choreName){
+        try 
+        {
+            _choreService.deleteChore(choreName);
+            string result = $"{choreName} has been deleted";
+            return result;
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+
+    [HttpPost]
+    public ActionResult<Chore> createChore([FromBody] Chore choreData ){
+        try 
+        {
+            Chore chore = _choreService.createChore(choreData);
+            return chore;
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
         }
     }
 
