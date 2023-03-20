@@ -17,7 +17,7 @@ namespace chore.Models
     public string Name { get; set; }
         public int Time { get; set; }
         public string Description { get; set; }
-        public bool IsDone { get; private set; } = false
+        public bool IsDone { get; private set; } = false;
 
         public void ChoreDone(){
             this.IsDone = true;
