@@ -13,6 +13,12 @@ public ChorseService(ChoresRepository repo)
         _repo = repo;
     }
 
+    internal void completeChore(string choreName)
+    {
+        Chore chore = _repo.getChoreByName(choreName);
+        chore.ChoreDone();
+    }
+
     internal List<Chore> getAllChores()
     {
         return _repo.getAllChores();

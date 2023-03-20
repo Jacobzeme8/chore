@@ -44,6 +44,19 @@ namespace chore.Controllers
         }
     }
 
+    [HttpPut ("{choreName}")]
+    public ActionResult<String> completeChore(string choreName){
+        try 
+        {
+            _choreService.completeChore(choreName);
+            string result = $"{choreName} is complete";
+            return result;
+        }
+        catch (Exception e)
+        {
+          return BadRequest(e.Message);
+        }
+    }
 
     }
 }
